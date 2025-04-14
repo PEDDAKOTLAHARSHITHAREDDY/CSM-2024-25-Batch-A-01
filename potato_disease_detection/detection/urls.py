@@ -1,0 +1,8 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.upload_image, name='upload_image'),
+    path('results/', views.upload_image, name='results'),
+    path('about/', views.about, name='about'),
+]

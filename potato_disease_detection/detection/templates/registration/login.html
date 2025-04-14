@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-container">
+    <h1 class="hero-title">Welcome Back</h1>
+    
+    <div style="max-width: 500px; margin: 0 auto;">
+        <form method="post" style="margin: 30px 0;">
+            {% csrf_token %}
+            <div style="margin-bottom: 20px;">
+                {% for field in form %}
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 5px; color: #2c3e50; font-weight: 500;">
+                        {{ field.label }}
+                    </label>
+                    {{ field }}
+                    {% if field.help_text %}
+                    <small style="color: #777; font-size: 0.9rem;">{{ field.help_text }}</small>
+                    {% endif %}
+                    {% for error in field.errors %}
+                    <div style="color: #e74c3c; font-size: 0.9rem; margin-top: 5px;">
+                        {{ error }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            
+            <button type="submit" class="btn-primary" style="width: 100%;">
+                Sign In
+            </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="color: #555;">
+                Don't have an account? 
+                <a href="{% url 'register' %}" style="color: #4CAF50; font-weight: 500;">Create account</a>
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

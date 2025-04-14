@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="main-container">
+    <h1 class="hero-title">SMART AGRI ASSIST</h1>
+    <p class="hero-subtitle">Enhancing Leaf Disease Recognition Using Deep Learning Techniques</p>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">
+            Upload images of potato leaves to detect diseases and get treatment recommendations.
+            This system uses deep learning techniques to classify leaf diseases and provide accurate results.
+        </p>
+    </div>
+    
+    <div class="cta-container">
+        {% if user.is_authenticated %}
+            <a href="{% url 'upload_image' %}" class="btn-primary">
+                Upload Image
+            </a>
+        {% else %}
+            <a href="{% url 'register' %}" class="btn-primary">
+                Register
+            </a>
+            <a href="{% url 'login' %}" class="btn-primary">
+                Login
+            </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
