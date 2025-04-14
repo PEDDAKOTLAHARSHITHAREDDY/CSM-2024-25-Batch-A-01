@@ -1,4 +1,5 @@
 SMART AGRI ASSIST: Enhancing Leaf Disease Recognition Using Deep Learning Techiques
+                            
                               ABSTRACT 
                               
 Early detection of potato leaf diseases is vital for crop health and yield. 
